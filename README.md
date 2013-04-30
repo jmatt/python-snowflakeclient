@@ -1,3 +1,11 @@
+---
+title: python-snowflakeclient
+description: Another python snowflake client. But this works.
+author: J. Matt Peterson
+created:  2013 Apr 30
+modified: 2013 Apr 30
+
+---
 python-snowflakeclient
 ======================
 
@@ -12,12 +20,21 @@ includes a script so snowflake can accessed from the console.
 pip install git+git://github.com/jmatt/python-snowflakeclient
 ```
 
-# Use
+# Python
 ```python
+In [1]: host = "localhost"
 
+In [2]: port = 7610
+
+In [3]: from snowflakeclient.client import Client
+
+In [4]: client = Client(host, port)
+
+In [5]: client.get_id("rahr")
+Out[5]: 329372919094317056
 ```
 
-# Use console script
+# Console script
 ```bash
 user@server:~> snowflake --help
 Usage: snowflake [options]
