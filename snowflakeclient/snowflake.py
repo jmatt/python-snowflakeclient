@@ -32,6 +32,8 @@ def main():
                       default=n,
                       type="int",
                       help="Number of snowflake ids to get from the server.")
+    parser.add_option("-v", "--verbose",
+                      help="Print additional information.")
     (options, args) = parser.parse_args()
 
     if options.host:
@@ -42,14 +44,20 @@ def main():
         agent = options.agent
     if options.count:
         n = options.count
-
-    print n
-    print '"' + agent + '"'
-    print host + ":" + str(port)
+    if options.verbose:
+        print n
+        print '"' + agent + '"'
+        print host + ":" + str(port)
 
     client = Client(host, port)
     if client:
-        print client.n_ids(agent, n)
+        try:
+            print client.n_ids(agent, n)
+        except Exception as e:
+            print "There was a problem with the snowflake client.\n\n%s"\
+                % (e.msg)
+            if options.verbose:
+                traceback.print_exc(e)
     else:
         print "Unable to create snowflake server client."
 
