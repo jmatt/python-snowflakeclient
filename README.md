@@ -36,8 +36,8 @@ Out[5]: 329372919094317056
 
 # Console script
 ```bash
-user@server:~> snowflake --help
-Usage: snowflake [options]
+user@server:~> snowflake.py --help
+Usage: snowflake.py [options]
 
 Options:
   -h, --help            show this help message and exit
@@ -47,14 +47,16 @@ Options:
                         The snowflake server agent.
   -c COUNT, --count=COUNT
                         Number of snowflake ids to get from the server.
+  -v, --verbose         Be noisy. MOAR!
+  -q, --quiet           Shhh.
 
-user@server:~> snowflake -h localhost -p 7610 -a awesome
+user@server:~> snowflake -v -h localhost -p 7610 -a awesome
 1
 "awesome"
 localhost:7610
 [329361097121337344]
 
-user@server:~> snowflake --count=5 -h localhost -p 7610
+user@server:~> snowflake --verbose --count=5 -h localhost -p 7610
 5
 "SN"
 localhost:7610

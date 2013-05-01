@@ -24,11 +24,11 @@ class Client(object):
 
     client = None
 
-    def __init__(self, host, port):
-        self.client = Client.factory(host, port)
+    def __init__(self, host, port, verbose=True):
+        self.client = Client.factory(host, port, verbose)
 
     @classmethod
-    def factory(cls, host, port):
+    def factory(cls, host, port, verbose=True):
         """
         Returns an open Snowflake client instance.
         """
@@ -43,7 +43,8 @@ class Client(object):
             transport.open()
             return client
         except Exception as e:
-            traceback.print_exc(file=sys.stdout)
+            if verbose:
+                raise e
 
     def get_id(self, agent):
         return self.client.get_id(agent)
