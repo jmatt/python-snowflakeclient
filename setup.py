@@ -30,7 +30,7 @@ setuptools.setup(
     license="Apache License, Version 2.0",
     url="https://github.com/jmatt/python-snowflakeclient",
     packages=setuptools.find_packages(),
-    setup_requires=['thrift>=0.9'],
+    install_requires=['thrift>=0.9'],
     include_package_data=True,
     classifiers=[
         "Development Status :: 3 - Alpha",
