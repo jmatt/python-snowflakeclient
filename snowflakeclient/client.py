@@ -30,7 +30,7 @@ class Client(object):
     @classmethod
     def factory(cls, host, port):
         """
-        Returns an open Snowflake client.
+        Returns an open Snowflake client instance.
         """
         try:
             socket = TSocket.TSocket(host, port)
@@ -48,10 +48,19 @@ class Client(object):
     def get_id(self, agent):
         return self.client.get_id(agent)
 
-    def n_times(self, agent, n):
+    def n_ids(self, agent, n):
         i = 0
         ids = []
         while i < n:
             ids.append(self.client.get_id(agent))
             i += 1
         return ids
+
+    def get_datacenter_id():
+        return self.client.get_datacenter_id()
+
+    def get_timestamp():
+        return self.client.get_timestamp()
+
+    def get_worker_id():
+        return self.client.get_worker_id()

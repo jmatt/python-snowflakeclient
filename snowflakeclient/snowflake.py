@@ -49,7 +49,7 @@ def main():
 
     client = Client(host, port)
     if client:
-        print client.n_times(agent, n)
+        print client.n_ids(agent, n)
     else:
         print "Unable to create snowflake server client."
 
