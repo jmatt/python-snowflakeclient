@@ -17,7 +17,7 @@ includes a script so snowflake can accessed from the console.
 
 # Install
 ```bash
-pip install git+git://github.com/jmatt/python-snowflakeclient
+pip install git+git://github.com/jmatt/python-snowflakeclient#egg=python-snowflakeclient
 ```
 
 # Python
